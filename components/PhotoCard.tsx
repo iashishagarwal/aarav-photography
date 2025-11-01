@@ -43,10 +43,13 @@ export function PhotoCard({ photo, onSelect, priority, index }: PhotoCardProps) 
         ease: [0.22, 1, 0.36, 1],
       }}
       whileHover={{ translateY: -6 }}
-      className="group relative mb-6 break-inside-avoid overflow-hidden rounded-[28px] border border-black/10 bg-gradient-to-br from-black/5 to-white/0 shadow-soft-xl backdrop-blur-lg transition duration-500 hover:border-black/30 dark:border-white/10 dark:from-white/10 dark:hover:border-white/25"
+      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-[24px] border border-white/8 bg-white/[0.04] shadow-[0_18px_45px_-35px_rgba(5,7,13,0.65)] backdrop-blur-lg transition duration-400 hover:border-white/20"
       onClick={handleClick}
     >
-      <div className="relative h-full w-full cursor-pointer">
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ aspectRatio: '3 / 4' }}
+      >
         <Image
           src={photo.url}
           alt={photo.title}
@@ -61,12 +64,12 @@ export function PhotoCard({ photo, onSelect, priority, index }: PhotoCardProps) 
           }`}
           onLoad={() => setLoaded(true)}
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/0 to-black/10 opacity-0 transition duration-500 group-hover:opacity-100" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/15 opacity-0 transition duration-400 group-hover:opacity-100" />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-2 p-6 opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-2 p-4 opacity-0 transition duration-400 group-hover:translate-y-0 group-hover:opacity-100"
         >
           <p className="text-xs uppercase tracking-[0.4em] text-pewter/80">
             {photo.location}
@@ -74,7 +77,7 @@ export function PhotoCard({ photo, onSelect, priority, index }: PhotoCardProps) 
           <h3 className="mt-1 text-lg font-medium text-white">
             {photo.title}
           </h3>
-          <p className="mt-2 text-sm text-pewter/70">
+          <p className="mt-2 text-xs text-pewter/70">
             {photo.camera} · {new Date(photo.date).toLocaleDateString(undefined, {
               month: 'long',
               day: 'numeric',

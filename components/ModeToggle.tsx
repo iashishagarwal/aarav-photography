@@ -1,6 +1,7 @@
 'use client';
 
 import { useGallery } from '@/components/providers/gallery-provider';
+import { Grid3X3, Maximize2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
@@ -10,9 +11,6 @@ const toggleVariants = {
   animate: { scale: 1, opacity: 1 },
   tap: { scale: 0.94 },
 };
-
-const iconClasses =
-  'relative flex h-12 w-12 items-center justify-center rounded-2xl border border-black/10 bg-black/5 transition hover:border-black/30 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/25 dark:hover:bg-white/10';
 
 export function ModeToggle() {
   const { mode, setMode, activePhotoId } = useGallery();
@@ -30,6 +28,8 @@ export function ModeToggle() {
     }
   }, [mode, setMode, router, activePhotoId]);
 
+  const Icon = mode === 'wall' ? Grid3X3 : Maximize2;
+
   return (
     <motion.button
       type="button"
@@ -40,24 +40,24 @@ export function ModeToggle() {
       whileTap="tap"
       aria-label={`Switch to ${nextMode} mode`}
       title={`Switch to ${nextMode === 'focus' ? 'full view' : 'wall'} mode`}
-      className={`${iconClasses} group`}
+      className="group relative flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/80 text-black/70 shadow-[0_8px_20px_-12px_rgba(8,9,10,0.45)] transition duration-200 hover:border-black/30 hover:text-black dark:border-white/15 dark:bg-white/[0.08] dark:text-white/70 dark:hover:border-white/35 dark:hover:text-white"
     >
       <motion.span
         key={mode}
-        initial={{ y: 8, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -8, opacity: 0 }}
-        transition={{ duration: 0.25, ease: 'easeOut' }}
-        className="text-xs font-semibold uppercase tracking-[0.35em] text-charcoal/70 transition group-hover:text-charcoal dark:text-pewter/70 dark:group-hover:text-pewter"
+        initial={{ scale: 0.75, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.75, opacity: 0 }}
+        transition={{ duration: 0.18, ease: 'easeOut' }}
+        className="relative z-20"
       >
-        {mode === 'wall' ? 'Wall' : 'Focus'}
+        <Icon className="h-[18px] w-[18px]" strokeWidth={1.6} />
       </motion.span>
-      <span className="pointer-events-none absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-white/10 to-white/0 opacity-0 blur transition duration-500 group-hover:opacity-100" />
       <motion.span
-        layoutId="mode-toggle-indicator"
-        className="pointer-events-none absolute -inset-[2px] rounded-2xl border border-white/10"
-        transition={{ type: 'spring', stiffness: 220, damping: 28 }}
+        layoutId="rail-control-indicator-mode"
+        className="pointer-events-none absolute inset-0 rounded-full border border-white/40 bg-white/20 backdrop-blur-[1px] dark:border-white/20 dark:bg-white/5"
+        transition={{ type: 'spring', stiffness: 400, damping: 36 }}
       />
+      <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-br from-white/60 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100 dark:from-white/20" />
     </motion.button>
   );
 }

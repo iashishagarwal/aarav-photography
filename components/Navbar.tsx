@@ -6,8 +6,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/#wall', label: 'Wall' },
+  { href: '/', label: 'Gallery' },
   { href: '/photo/1', label: 'Full View' },
   { href: '/#about', label: 'About' },
 ];
@@ -17,13 +16,13 @@ export function Navbar() {
 
   return (
     <motion.nav
-      initial={{ opacity: 0, y: -20 }}
+      initial={{ opacity: 0, y: -18 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="sticky top-0 z-50 flex h-20 items-center justify-between border-b border-white/10 bg-gradient-to-br from-black/70 via-black/40 to-transparent px-6 backdrop-blur-xl md:px-12"
+      className="sticky top-0 z-50 flex h-[4.75rem] items-center justify-between border-b border-white/10 bg-[linear-gradient(135deg,rgba(15,18,38,0.95),rgba(32,38,79,0.9))] px-6 text-white shadow-[0_20px_60px_-25px_rgba(8,12,26,0.75)] backdrop-blur-3xl md:px-12"
     >
-      <Link href="/" className="group flex items-center space-x-3">
-        <div className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl border border-black/10 transition group-hover:border-black/30 dark:border-white/15 dark:group-hover:border-white/40">
+      <Link href="/" className="group flex items-center space-x-4">
+        <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-white/25 bg-white/10 transition group-hover:border-white/80">
           <motion.span
             layoutId="logo-orbit"
             className="absolute inset-0 scale-110 bg-radial-glow opacity-60 blur-sm group-hover:opacity-90"
@@ -39,13 +38,13 @@ export function Navbar() {
           />
         </div>
         <div>
-          <p className="text-sm uppercase tracking-[0.6em] text-pewter/60">
+          <p className="text-sm uppercase tracking-[0.6em] text-white/50">
             Aarav
           </p>
           <p className="text-lg font-medium text-white">Agarwal</p>
         </div>
       </Link>
-      <div className="hidden gap-10 text-sm uppercase tracking-[0.45em] text-pewter/60 lg:flex">
+      <div className="hidden gap-10 text-sm uppercase tracking-[0.45em] text-white/60 lg:flex">
         {navLinks.map((link) => {
           const isActive =
             pathname === link.href ||

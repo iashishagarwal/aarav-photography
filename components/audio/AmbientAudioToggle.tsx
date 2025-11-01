@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { VolumeX, Waveform } from 'lucide-react';
 import {
   useCallback,
   useEffect,
@@ -8,8 +9,6 @@ import {
   useState,
   startTransition,
 } from 'react';
-
-const ease = [0.22, 1, 0.36, 1];
 
 type FadeDirection = 'in' | 'out';
 
@@ -113,28 +112,32 @@ export function AmbientAudioToggle() {
     <motion.button
       type="button"
       onClick={togglePlayback}
-      className={`relative flex h-12 w-12 items-center justify-center rounded-2xl border border-black/10 bg-black/5 text-xs font-semibold uppercase tracking-[0.35em] transition hover:border-black/30 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/25 dark:hover:bg-white/10 ${
-        isPlaying
-          ? 'text-charcoal dark:text-white'
-          : 'text-charcoal/70 hover:text-charcoal dark:text-pewter/70 dark:hover:text-pewter'
-      } ${isError ? 'opacity-50' : ''}`}
-      whileTap={{ scale: 0.95 }}
+      className={`group relative flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/80 text-black/70 shadow-[0_8px_20px_-12px_rgba(8,9,10,0.45)] transition duration-200 hover:border-black/30 hover:text-black dark:border-white/15 dark:bg-white/[0.08] dark:text-white/70 dark:hover:border-white/35 dark:hover:text-white ${isError ? 'opacity-40' : ''}`}
+      whileTap={{ scale: 0.92 }}
       disabled={!isReady || isError}
       aria-label={isPlaying ? 'Disable ambient audio' : 'Enable ambient audio'}
     >
       <motion.span
         key={isPlaying ? 'on' : 'off'}
-        initial={{ y: 6, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.18, ease }}
+        initial={{ scale: 0.75, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.18, ease: 'easeOut' }}
+        className="relative z-20"
       >
-        {isPlaying ? 'On' : 'Off'}
+        {isPlaying ? (
+          <Waveform className="h-[18px] w-[18px]" strokeWidth={1.6} />
+        ) : (
+          <VolumeX className="h-[18px] w-[18px]" strokeWidth={1.5} />
+        )}
       </motion.span>
       <motion.span
-        layoutId="audio-indicator"
-        className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-blue/18 to-accent-silver/10 opacity-20"
-        animate={{ opacity: isPlaying ? 0.4 : 0.16 }}
-        transition={{ duration: 0.24, ease }}
+        layoutId="rail-control-indicator-audio"
+        className="pointer-events-none absolute inset-0 rounded-full border border-white/40 bg-white/20 backdrop-blur-[1px] dark:border-white/20 dark:bg-white/5"
+        transition={{ type: 'spring', stiffness: 400, damping: 36 }}
+      />
+      <motion.div
+        className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-br from-accent-blue/40 via-transparent to-transparent opacity-0 transition duration-300 dark:from-accent-blue/20"
+        animate={{ opacity: isPlaying ? 0.55 : 0.15 }}
       />
     </motion.button>
   );

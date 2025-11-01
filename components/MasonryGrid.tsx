@@ -21,7 +21,7 @@ export function MasonryGrid({ photos, onPhotoSelect }: MasonryGridProps) {
   return (
     <motion.div
       layout
-      className="columns-1 gap-6 sm:columns-2 md:gap-8 lg:columns-3 xl:columns-4 2xl:columns-5"
+      className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
     >
       {photos.map((photo, index) => (
         <PhotoCard
