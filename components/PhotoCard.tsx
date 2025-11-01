@@ -43,7 +43,7 @@ export function PhotoCard({ photo, onSelect, priority, index }: PhotoCardProps) 
         ease: [0.22, 1, 0.36, 1],
       }}
       whileHover={{ translateY: -6 }}
-      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-[24px] border border-white/8 bg-white/[0.04] shadow-[0_18px_45px_-35px_rgba(5,7,13,0.65)] backdrop-blur-lg transition duration-400 hover:border-white/20"
+      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-[24px] border border-white/10 bg-white/5 shadow-[0_25px_60px_-40px_rgba(8,11,22,0.65)] backdrop-blur-2xl transition duration-400 hover:border-accent-cyan/60"
       onClick={handleClick}
     >
       <div
@@ -64,20 +64,20 @@ export function PhotoCard({ photo, onSelect, priority, index }: PhotoCardProps) 
           }`}
           onLoad={() => setLoaded(true)}
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/15 opacity-0 transition duration-400 group-hover:opacity-100" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/35 to-transparent opacity-0 transition duration-400 group-hover:opacity-100" />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
           className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-2 p-4 opacity-0 transition duration-400 group-hover:translate-y-0 group-hover:opacity-100"
         >
-          <p className="text-xs uppercase tracking-[0.4em] text-pewter/80">
+          <p className="text-[0.65rem] uppercase tracking-[0.35em] text-accent-cyan/70">
             {photo.location}
           </p>
-          <h3 className="mt-1 text-lg font-medium text-white">
+          <h3 className="mt-1 text-lg font-medium text-white drop-shadow-[0_4px_12px_rgba(17,10,4,0.35)]">
             {photo.title}
           </h3>
-          <p className="mt-2 text-xs text-pewter/70">
+          <p className="mt-2 text-[0.68rem] uppercase tracking-[0.25em] text-accent-cyan/65">
             {photo.camera} · {new Date(photo.date).toLocaleDateString(undefined, {
               month: 'long',
               day: 'numeric',

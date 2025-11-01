@@ -34,16 +34,16 @@ export function WallGallery({ photos }: WallGalleryProps) {
   return (
     <div className="relative overflow-hidden">
       <motion.div
-        className="pointer-events-none fixed inset-x-0 top-20 z-30 h-[3px] bg-black/10 dark:bg-white/5"
+        className="pointer-events-none fixed inset-x-0 top-0 z-30 h-[3px] bg-accent-cyan/50"
         style={{ opacity: heroOpacity }}
       >
         <motion.div
-          className="h-full bg-gradient-to-r from-accent-blue via-[#56ffd9] to-accent-silver"
+          className="h-full bg-gradient-to-r from-accent-cyan via-accent-indigo to-accent-silver"
           style={{ width: progressWidth }}
         />
       </motion.div>
       <section
-        className="relative overflow-hidden bg-[#07090d] text-white dark:bg-midnight"
+        className="relative overflow-hidden bg-graphite text-mist"
         id="wall"
       >
         <motion.div
@@ -52,23 +52,23 @@ export function WallGallery({ photos }: WallGalleryProps) {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="relative flex min-h-[44vh] flex-col justify-center px-6 py-16 text-center sm:px-10 lg:px-20"
         >
-          <div className="absolute inset-0 -z-20 bg-gradient-to-br from-black via-[#0b0f19] to-[#10131f] opacity-90" />
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(76,110,245,0.35),transparent_65%),radial-gradient(circle_at_80%_0%,rgba(188,205,220,0.25),transparent_55%),radial-gradient(circle_at_10%_90%,rgba(86,255,217,0.28),transparent_65%)]" />
-          <h1 className="mt-4 text-3xl font-light tracking-tight md:text-5xl">
+          <div className="absolute inset-0 -z-20 bg-gradient-to-br from-obsidian via-graphite to-black/60" />
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.28),transparent_60%),radial-gradient(circle_at_80%_0%,rgba(99,102,241,0.25),transparent_55%)]" />
+          <h1 className="mt-4 text-3xl font-light tracking-tight text-mist md:text-5xl">
             Aarav Agarwal&apos;s wanderlust in motion.
           </h1>
-          <div className="mx-auto mt-3 h-[3px] w-20 rounded-full bg-gradient-to-r from-[#56ffd9] via-[#4c6ef5] to-transparent opacity-80" />
-          <p className="mt-3 text-sm text-white/70 md:text-base">
+          <div className="mx-auto mt-3 h-[3px] w-24 rounded-full bg-gradient-to-r from-accent-cyan via-accent-indigo to-accent-silver" />
+          <p className="mt-3 text-sm text-mist/70 md:text-base">
             Journey alongside a high school storyteller who chases alpine glow,
             neon skylines, and the hush of midnight skies. Each frame reveals the
             rhythm of nature and the pulse of cities after dusk.
           </p>
         </motion.div>
       </section>
-      <section className="relative bg-[#05070d] pb-24 text-white dark:bg-midnight">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent dark:via-white/[0.04]" />
-        <div className="flex w-full justify-end px-6 pb-8 text-[0.65rem] uppercase tracking-[0.4em] text-white/45 sm:px-10 lg:px-20">
-          <span className="rounded-full border border-[#56ffd9]/50 px-3 py-1 text-white/80 shadow-[0_8px_18px_-12px_rgba(86,255,217,0.6)]">
+      <section className="relative bg-graphite pb-24 text-mist">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-accent-slate/40 to-transparent" />
+        <div className="flex w-full justify-end px-6 pb-8 text-[0.65rem] uppercase tracking-[0.4em] text-mist/50 sm:px-10 lg:px-20">
+          <span className="rounded-full border border-accent-cyan/40 px-3 py-1 text-mist/80 shadow-[0_8px_18px_-12px_rgba(56,189,248,0.35)]">
             {visiblePhotos.length} frames
           </span>
         </div>
@@ -77,7 +77,7 @@ export function WallGallery({ photos }: WallGalleryProps) {
         </div>
         <div
           ref={sentinelRef}
-          className="flex h-16 items-center justify-center text-[0.65rem] uppercase tracking-[0.4em] text-white/45"
+          className="flex h-16 items-center justify-center text-[0.65rem] uppercase tracking-[0.4em] text-mist/40"
         >
           {isFetching && !isExhausted ? (
             <motion.span

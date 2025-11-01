@@ -12,7 +12,7 @@ export function FloatingControlRail() {
 
   return (
     <motion.aside
-      className="fixed bottom-8 right-5 z-40 flex flex-col items-center gap-1.5 rounded-[22px] border border-white/40 bg-white/60 p-2.5 text-charcoal backdrop-blur-xl shadow-[0_18px_35px_-22px_rgba(8,9,10,0.55)] transition-colors duration-500 dark:border-white/20 dark:bg-white/[0.08] dark:text-white sm:right-9"
+      className="fixed bottom-8 right-5 z-40 flex flex-col items-center gap-1.5 rounded-[22px] border border-white/10 bg-obsidian/80 p-2.5 text-mist backdrop-blur-xl shadow-[0_18px_45px_-26px_rgba(8,11,22,0.55)] transition-colors duration-500 sm:right-9"
       style={{ opacity, y: translateY }}
     >
       <ModeToggle />

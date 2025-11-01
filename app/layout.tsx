@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { GalleryProvider } from '@/components/providers/gallery-provider';
 import { Navbar } from '@/components/Navbar';
 import { FloatingControlRail } from '@/components/FloatingControlRail';
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-montserrat',
 });
 
 export const metadata: Metadata = {
@@ -50,11 +50,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} bg-[#f5f6f8] text-charcoal transition-colors duration-700 antialiased dark:bg-midnight dark:text-white`}
+        className={`${montserrat.variable} bg-graphite font-sans text-mist transition-colors duration-700 antialiased dark:bg-graphite dark:text-mist`}
       >
         <ThemeProvider>
           <GalleryProvider>
-            <div className="relative flex min-h-screen flex-col bg-[#f5f6f8] text-charcoal transition-colors duration-700 dark:bg-midnight dark:text-white">
+            <div className="relative flex min-h-screen flex-col bg-graphite text-mist transition-colors duration-700">
               <Navbar />
               <main className="flex-1">{children}</main>
               <FloatingControlRail />

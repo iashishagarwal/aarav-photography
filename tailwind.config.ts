@@ -13,23 +13,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        charcoal: '#101113',
-        midnight: '#08090a',
-        pewter: '#d0d4d9',
+        graphite: '#0F1117',
+        obsidian: '#141824',
+        mist: '#F4F6FB',
         accent: {
-          blue: '#4c6ef5',
-          silver: '#bcccdc',
+          cyan: '#38BDF8',
+          indigo: '#6366F1',
+          slate: '#1E293B',
+          silver: '#9CA3AF',
         },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', ...fontFamily.sans],
+        sans: ['var(--font-montserrat)', ...fontFamily.sans],
       },
       backgroundImage: {
         'radial-glow':
-          'radial-gradient(circle at 20% 20%, rgba(76, 110, 245, 0.25), transparent 60%), radial-gradient(circle at 80% 0%, rgba(188, 205, 220, 0.15), transparent 55%)',
+          'radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.35), transparent 60%), radial-gradient(circle at 80% 0%, rgba(99, 102, 241, 0.28), transparent 55%)',
       },
       boxShadow: {
-        'soft-xl': '0 35px 60px -15px rgba(8, 9, 10, 0.55)',
+        'soft-xl': '0 35px 60px -15px rgba(15, 17, 23, 0.45)',
       },
     },
   },

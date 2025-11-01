@@ -112,7 +112,7 @@ export function AmbientAudioToggle() {
     <motion.button
       type="button"
       onClick={togglePlayback}
-      className={`group relative flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/80 text-black/70 shadow-[0_8px_20px_-12px_rgba(8,9,10,0.45)] transition duration-200 hover:border-black/30 hover:text-black dark:border-white/15 dark:bg-white/[0.08] dark:text-white/70 dark:hover:border-white/35 dark:hover:text-white ${isError ? 'opacity-40' : ''}`}
+      className={`group relative flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-obsidian/80 text-mist/80 transition duration-200 hover:border-accent-cyan/60 hover:text-mist ${isError ? 'opacity-40' : ''}`}
       whileTap={{ scale: 0.92 }}
       disabled={!isReady || isError}
       aria-label={isPlaying ? 'Disable ambient audio' : 'Enable ambient audio'}
@@ -132,12 +132,12 @@ export function AmbientAudioToggle() {
       </motion.span>
       <motion.span
         layoutId="rail-control-indicator-audio"
-        className="pointer-events-none absolute inset-0 rounded-full border border-white/40 bg-white/20 backdrop-blur-[1px] dark:border-white/20 dark:bg-white/5"
+        className="pointer-events-none absolute inset-0 rounded-full border border-accent-cyan/50 bg-white/20 backdrop-blur-[2px]"
         transition={{ type: 'spring', stiffness: 400, damping: 36 }}
       />
       <motion.div
-        className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-br from-accent-blue/40 via-transparent to-transparent opacity-0 transition duration-300 dark:from-accent-blue/20"
-        animate={{ opacity: isPlaying ? 0.55 : 0.15 }}
+        className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-br from-accent-cyan/35 via-transparent to-transparent opacity-0 transition duration-300"
+        animate={{ opacity: isPlaying ? 0.45 : 0.18 }}
       />
     </motion.button>
   );
