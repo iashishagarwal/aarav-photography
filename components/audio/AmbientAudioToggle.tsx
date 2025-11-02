@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { VolumeX, Waveform } from 'lucide-react';
+import { Volume2, VolumeX } from 'lucide-react';
 import {
   useCallback,
   useEffect,
@@ -125,7 +125,7 @@ export function AmbientAudioToggle() {
         className="relative z-20"
       >
         {isPlaying ? (
-          <Waveform className="h-[18px] w-[18px]" strokeWidth={1.6} />
+          <Volume2 className="h-[18px] w-[18px]" strokeWidth={1.6} />
         ) : (
           <VolumeX className="h-[18px] w-[18px]" strokeWidth={1.5} />
         )}
