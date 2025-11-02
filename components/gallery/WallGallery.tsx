@@ -6,7 +6,7 @@ import { MasonryGrid } from '@/components/MasonryGrid';
 import { useInfinitePhotos } from '@/hooks/useInfinitePhotos';
 import { Photo } from '@/types/photo';
 import { useRouter } from 'next/navigation';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 type WallGalleryProps = {
   photos: Photo[];
@@ -23,27 +23,14 @@ export function WallGallery({ photos }: WallGalleryProps) {
     setActivePhotoId(null);
   }, [setMode, setActivePhotoId]);
 
-  const { scrollYProgress } = useScroll();
-  const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.3]);
-
   const handleSelect = (photo: Photo) => {
     router.push(`/photo/${photo.id}?from=wall`);
   };
 
   return (
     <div className="relative overflow-hidden">
-      <motion.div
-        className="pointer-events-none fixed inset-x-0 top-0 z-30 h-[3px] bg-accent-cyan/50"
-        style={{ opacity: heroOpacity }}
-      >
-        <motion.div
-          className="h-full bg-gradient-to-r from-accent-cyan via-accent-indigo to-accent-silver"
-          style={{ width: progressWidth }}
-        />
-      </motion.div>
       <section
-        className="relative overflow-hidden bg-graphite text-mist"
+        className="relative overflow-hidden bg-slate-100 text-slate-900 dark:bg-graphite dark:text-mist"
         id="wall"
       >
         <motion.div
@@ -52,23 +39,23 @@ export function WallGallery({ photos }: WallGalleryProps) {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="relative flex min-h-[44vh] flex-col justify-center px-6 py-16 text-center sm:px-10 lg:px-20"
         >
-          <div className="absolute inset-0 -z-20 bg-gradient-to-br from-obsidian via-graphite to-black/60" />
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.28),transparent_60%),radial-gradient(circle_at_80%_0%,rgba(99,102,241,0.25),transparent_55%)]" />
-          <h1 className="mt-4 text-3xl font-light tracking-tight text-mist md:text-5xl">
+          <div className="absolute inset-0 -z-20 bg-gradient-to-br from-white via-slate-100 to-slate-200/70 dark:from-obsidian dark:via-graphite dark:to-black/60" />
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.22),transparent_60%),radial-gradient(circle_at_80%_0%,rgba(99,102,241,0.2),transparent_55%)]" />
+          <h1 className="mt-4 text-3xl font-light tracking-tight text-slate-900 dark:text-mist md:text-5xl">
             Aarav Agarwal&apos;s wanderlust in motion.
           </h1>
           <div className="mx-auto mt-3 h-[3px] w-24 rounded-full bg-gradient-to-r from-accent-cyan via-accent-indigo to-accent-silver" />
-          <p className="mt-3 text-sm text-mist/70 md:text-base">
+          <p className="mt-3 text-sm text-slate-600 dark:text-mist/70 md:text-base">
             Journey alongside a high school storyteller who chases alpine glow,
             neon skylines, and the hush of midnight skies. Each frame reveals the
             rhythm of nature and the pulse of cities after dusk.
           </p>
         </motion.div>
       </section>
-      <section className="relative bg-graphite pb-24 text-mist">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-accent-slate/40 to-transparent" />
-        <div className="flex w-full justify-end px-6 pb-8 text-[0.65rem] uppercase tracking-[0.4em] text-mist/50 sm:px-10 lg:px-20">
-          <span className="rounded-full border border-accent-cyan/40 px-3 py-1 text-mist/80 shadow-[0_8px_18px_-12px_rgba(56,189,248,0.35)]">
+      <section className="relative bg-slate-100 pb-24 text-slate-900 dark:bg-graphite dark:text-mist">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-slate-200/60 to-transparent dark:via-accent-slate/40" />
+        <div className="flex w-full justify-end px-6 pb-8 text-[0.65rem] uppercase tracking-[0.4em] text-slate-500 dark:text-mist/50 sm:px-10 lg:px-20">
+          <span className="rounded-full border border-accent-cyan/60 px-3 py-1 text-slate-700 shadow-[0_8px_18px_-12px_rgba(56,189,248,0.25)] dark:border-accent-cyan/40 dark:text-mist/80 dark:shadow-[0_8px_18px_-12px_rgba(56,189,248,0.35)]">
             {visiblePhotos.length} frames
           </span>
         </div>
@@ -77,7 +64,7 @@ export function WallGallery({ photos }: WallGalleryProps) {
         </div>
         <div
           ref={sentinelRef}
-          className="flex h-16 items-center justify-center text-[0.65rem] uppercase tracking-[0.4em] text-mist/40"
+          className="flex h-16 items-center justify-center text-[0.65rem] uppercase tracking-[0.4em] text-slate-500 dark:text-mist/40"
         >
           {isFetching && !isExhausted ? (
             <motion.span

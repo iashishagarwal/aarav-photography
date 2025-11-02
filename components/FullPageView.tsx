@@ -181,25 +181,27 @@ export function FullPageView({
         <ArrowLeft className="h-4.5 w-4.5" strokeWidth={1.6} />
       </motion.button>
 
-      <motion.button
-        type="button"
-        onClick={() => navigateTo(prevPhoto)}
-        disabled={!prevPhoto}
-        className={`group absolute left-6 top-1/2 z-40 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full ${navButtonTone} backdrop-blur-md transition hover:border-white/60 hover:text-white disabled:cursor-not-allowed disabled:border-white/10 disabled:text-white/30 md:left-10`}
-        whileTap={{ scale: 0.92 }}
-      >
-        <ArrowLeft className="h-5 w-5" strokeWidth={1.6} />
-      </motion.button>
+      <div className="pointer-events-none absolute inset-y-0 left-0 right-0 z-40 flex items-center justify-between px-6 md:px-10">
+        <motion.button
+          type="button"
+          onClick={() => navigateTo(prevPhoto)}
+          disabled={!prevPhoto}
+          className={`group pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full ${navButtonTone} backdrop-blur-md transition hover:border-white/60 hover:text-white disabled:cursor-not-allowed disabled:border-white/10 disabled:text-white/30`}
+          whileTap={{ scale: 0.92 }}
+        >
+          <ArrowLeft className="h-5 w-5" strokeWidth={1.6} />
+        </motion.button>
 
-      <motion.button
-        type="button"
-        onClick={() => navigateTo(nextPhoto)}
-        disabled={!nextPhoto}
-        className={`group absolute right-6 top-1/2 z-40 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full ${navButtonTone} backdrop-blur-md transition hover:border-white/60 hover:text-white disabled:cursor-not-allowed disabled:border-white/10 disabled:text-white/30 md:right-10`}
-        whileTap={{ scale: 0.92 }}
-      >
-        <ArrowRight className="h-5 w-5" strokeWidth={1.6} />
-      </motion.button>
+        <motion.button
+          type="button"
+          onClick={() => navigateTo(nextPhoto)}
+          disabled={!nextPhoto}
+          className={`group pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full ${navButtonTone} backdrop-blur-md transition hover:border-white/60 hover:text-white disabled:cursor-not-allowed disabled:border-white/10 disabled:text-white/30`}
+          whileTap={{ scale: 0.92 }}
+        >
+          <ArrowRight className="h-5 w-5" strokeWidth={1.6} />
+        </motion.button>
+      </div>
 
       <motion.div
         drag="x"
@@ -215,7 +217,7 @@ export function FullPageView({
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute inset-x-0 bottom-0 z-50 px-6 pb-12 md:px-16 md:pb-16"
+        className="absolute inset-x-0 bottom-0 z-50 px-6 pb-16 md:px-16 md:pb-20 pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-[calc(4.5rem+env(safe-area-inset-bottom))]"
       >
         <div className="max-w-4xl space-y-5">
           <p className={`flex items-center gap-3 text-xs uppercase tracking-[0.5em] ${labelClass}`}>

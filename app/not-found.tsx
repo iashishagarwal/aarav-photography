@@ -5,26 +5,26 @@ import { motion } from 'framer-motion';
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center bg-graphite text-mist">
+    <main className="flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center bg-slate-100 text-slate-900 dark:bg-graphite dark:text-mist">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="mx-auto max-w-xl space-y-6 px-6 text-center"
       >
-        <p className="text-xs uppercase tracking-[0.7em] text-mist/60">
+        <p className="text-xs uppercase tracking-[0.7em] text-slate-500 dark:text-mist/60">
           404
         </p>
-        <h1 className="text-4xl font-light tracking-tight">
+        <h1 className="text-4xl font-light tracking-tight text-slate-900 dark:text-mist">
           The frame you are looking for is out of reach.
         </h1>
-        <p className="text-base text-mist/70">
+        <p className="text-base text-slate-600 dark:text-mist/70">
           Explore Aarav&apos;s gallery to wander through nature vignettes and night
           skies captured on the move.
         </p>
         <Link
           href="/"
-          className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm uppercase tracking-[0.35em] text-mist transition hover:border-accent-cyan/50 hover:text-white"
+          className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm uppercase tracking-[0.35em] text-slate-700 transition hover:border-slate-500 hover:text-slate-900 dark:border-white/15 dark:text-mist dark:hover:border-accent-cyan/50 dark:hover:text-white"
         >
           Return to Wall
         </Link>

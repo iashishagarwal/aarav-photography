@@ -50,11 +50,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${montserrat.variable} bg-graphite font-sans text-mist transition-colors duration-700 antialiased dark:bg-graphite dark:text-mist`}
+        className={`${montserrat.variable} bg-slate-100 font-sans text-slate-900 transition-colors duration-700 antialiased dark:bg-graphite dark:text-mist`}
       >
         <ThemeProvider>
           <GalleryProvider>
-            <div className="relative flex min-h-screen flex-col bg-graphite text-mist transition-colors duration-700">
+            <div className="relative flex min-h-screen flex-col bg-slate-100 text-slate-900 transition-colors duration-700 dark:bg-graphite dark:text-mist">
               <Navbar />
               <main className="flex-1">{children}</main>
               <FloatingControlRail />

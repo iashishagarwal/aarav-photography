@@ -40,7 +40,7 @@ export function ModeToggle() {
       whileTap="tap"
       aria-label={`Switch to ${nextMode} mode`}
       title={`Switch to ${nextMode === 'focus' ? 'full view' : 'wall'} mode`}
-      className="group relative flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-obsidian/80 text-mist/80 transition duration-200 hover:border-accent-cyan/60 hover:text-mist"
+      className="group relative flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white/85 text-slate-600 transition duration-200 hover:border-slate-500 hover:text-slate-800 dark:border-white/15 dark:bg-obsidian/80 dark:text-mist/80 dark:hover:border-accent-cyan/60 dark:hover:text-mist"
     >
       <motion.span
         key={mode}
@@ -54,10 +54,10 @@ export function ModeToggle() {
       </motion.span>
       <motion.span
         layoutId="rail-control-indicator-mode"
-        className="pointer-events-none absolute inset-0 rounded-full border border-accent-cyan/50 bg-white/20 backdrop-blur-[2px]"
+        className="pointer-events-none absolute inset-0 rounded-full border border-accent-cyan/50 bg-white/60 backdrop-blur-[2px] dark:bg-white/20"
         transition={{ type: 'spring', stiffness: 400, damping: 36 }}
       />
-      <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-br from-accent-cyan/35 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
+      <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-br from-accent-cyan/25 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100 dark:from-accent-cyan/35" />
     </motion.button>
   );
 }

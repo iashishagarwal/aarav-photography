@@ -21,8 +21,8 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="sticky top-0 z-40"
     >
-      <div className="relative mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between px-6 text-mist">
-        <div className="pointer-events-none absolute inset-0 -z-10 rounded-[20px] bg-gradient-to-r from-transparent via-[#1F2937]/40 to-transparent backdrop-blur-xl" />
+      <div className="relative mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between px-6 text-slate-900 dark:text-mist">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-white/70 to-transparent backdrop-blur-xl dark:via-[#1F2937]/40 dark:backdrop-blur-xl" />
         <Link href="/" className="group flex items-center gap-3">
           <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl">
             <Image
@@ -35,10 +35,10 @@ export function Navbar() {
             />
           </div>
           <div className="leading-tight">
-            <span className="block text-[0.62rem] uppercase tracking-[0.5em] text-mist/70">
+            <span className="block text-[0.62rem] uppercase tracking-[0.5em] text-slate-500 dark:text-mist/70">
               Aarav
             </span>
-            <span className="block text-base font-semibold tracking-[0.1em] text-mist">
+            <span className="block text-base font-semibold tracking-[0.1em] text-slate-900 dark:text-mist">
               Agarwal
             </span>
           </div>
@@ -57,7 +57,9 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={`relative pb-1 transition ${
-                  isActive ? 'text-mist' : 'text-mist/55 hover:text-mist'
+                  isActive
+                    ? 'text-slate-900 dark:text-mist'
+                    : 'text-slate-500 hover:text-slate-900 dark:text-mist/55 dark:hover:text-mist'
                 }`}
               >
                 {item.label}
@@ -73,7 +75,7 @@ export function Navbar() {
           })}
         </div>
       </div>
-      <div className="pointer-events-none absolute inset-x-0 top-[4.25rem] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-[4.25rem] h-px bg-gradient-to-r from-transparent via-slate-300/60 to-transparent dark:via-white/10" />
     </motion.nav>
   );
 }

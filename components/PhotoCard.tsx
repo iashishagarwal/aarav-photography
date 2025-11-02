@@ -43,7 +43,7 @@ export function PhotoCard({ photo, onSelect, priority, index }: PhotoCardProps) 
         ease: [0.22, 1, 0.36, 1],
       }}
       whileHover={{ translateY: -6 }}
-      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-[24px] border border-white/10 bg-white/5 shadow-[0_25px_60px_-40px_rgba(8,11,22,0.65)] backdrop-blur-2xl transition duration-400 hover:border-accent-cyan/60"
+      className="group relative flex cursor-pointer flex-col overflow-hidden border border-slate-200 bg-white shadow-[0_25px_60px_-40px_rgba(15,23,42,0.35)] transition duration-400 hover:border-accent-cyan/60 dark:border-white/10 dark:bg-white/5 dark:shadow-[0_25px_60px_-40px_rgba(8,11,22,0.65)]"
       onClick={handleClick}
     >
       <div
