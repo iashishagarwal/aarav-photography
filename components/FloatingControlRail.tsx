@@ -2,7 +2,6 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ModeToggle } from '@/components/ModeToggle';
-import { AmbientAudioToggle } from '@/components/audio/AmbientAudioToggle';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
 export function FloatingControlRail() {
@@ -16,7 +15,6 @@ export function FloatingControlRail() {
       style={{ opacity, y: translateY }}
     >
       <ModeToggle />
-      <AmbientAudioToggle />
       <ThemeToggle />
     </motion.aside>
   );
